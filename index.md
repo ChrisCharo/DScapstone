@@ -1,3 +1,7 @@
+---
+layout: home
+title: Welcome
+---
 # Welcome to Our Project
 This is the homepage of our project.
 
