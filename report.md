@@ -2,4 +2,7 @@
 layout: page
 title: Report
 ---
-# Report will go here
+# Project Report
+This page will contain our final report and analysis
+
+[Back to Home](index.md)
