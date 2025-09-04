@@ -2,7 +2,8 @@
 layout: page
 title: Data
 ---
-# Data
+# Data Page
+More info about the data used in our project
 
-Data will go here
+[Back to Home](index.md)
 
