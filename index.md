@@ -5,3 +5,4 @@ This is the homepage of our project.
 - [Report](report.md)
 - [Data](data.md)
 - [About Us](aboutus.md)
+- [Literature](literature.md)
