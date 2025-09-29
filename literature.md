@@ -2,7 +2,7 @@
 
 # Chris’s Literature Review  
 
-  ## [A Comparative Study of Sentiment Analysis on Customer Reviews Using Machine Learning and Deep Learning](https://www.mdpi.com/2073-431X/13/12/340)
+## [A Comparative Study of Sentiment Analysis on Customer Reviews Using Machine Learning and Deep Learning](https://www.mdpi.com/2073-431X/13/12/340)
 
 **Goal of the Paper**  
 To compare different machine learning and deep learning models for sentiment analysis of Amazon product reviews, evaluating the relative strengths and weaknesses of each. Models include neural networks (RNN, CNN) and traditional machine learning techniques (Logistic Regression, Random Forest, Naïve Bayes).
@@ -31,7 +31,7 @@ All models trained using an 80/20 train-test split.
 - Highlights that in compute-limited or large-scale applications, traditional ML can provide high accuracy more efficiently.  
 
 
-### [Sentiment Analysis using Support Vector Machine and Random Forest](https://www.researchgate.net/publication/378263992_Sentiment_Analysis_using_Support_Vector_Machine_and_Random_Forest)  
+## [Sentiment Analysis using Support Vector Machine and Random Forest](https://www.researchgate.net/publication/378263992_Sentiment_Analysis_using_Support_Vector_Machine_and_Random_Forest)  
 
 **What is the goal of the paper?**  
 The goal of this paper was to serve as a survey of machine learning techniques (the authors use the term ‘comprehensive’ but only evaluates Random Forest and SVM) and their use in determining expressed emotion in text (specifically social media in this case). It also covers a lot of the techniques used to make these models effective, from data preprocessing to training to feature extraction. It also covers a lot of the difficulties encountered and the relative strengths and weaknesses of the various models evaluated.  
@@ -49,7 +49,7 @@ Ultimately the SVM model won out over the Random Forest in all four metrics (Acc
 This was attributed to the SVM models’ ability to ‘effectively handle complex feature spaces, capture intricate relationships between words and sentiments, and achieve a high degree of classification accuracy’.  
 The paper did acknowledge the interpretability of the Random Forest model, which has always been a valuable feature of the technique.  
 
-### [Application of Support Vector Machine (SVM) in the Sentiment Analysis of Twitter DataSet](https://www.mdpi.com/2076-3417/10/3/1125)  
+## [Application of Support Vector Machine (SVM) in the Sentiment Analysis of Twitter DataSet](https://www.mdpi.com/2076-3417/10/3/1125)  
 
 **What is the goal of the paper?**  
 Unlike the other papers I read, this one focused solely on the SVM and its use as a sentiment classifier. The authors hope to demonstrate that the Fisher Kernel, as opposed to other options of the SVM is particularly well suited to making classification predictions of text data due to the kernels function being derived from the ‘Probabilistic Latent Semantic Analysis model’.  
@@ -71,7 +71,7 @@ Precision and Recall were used as metrics to compare the models.
 Ultimately the FK/PLSA SVM performed better than both of the other methods by a strong margin with the FK-SVM achieving an 87.2% precision and the HIST-SVM and PLSA-SVM achieving an 82.49% and 83.2% respectively.  
 The FK-SVM also outperformed the to other two models on recall with the FK-SVM achieving an 88.3% and the HIST-SVM and PLSA-SVM achieving 83.24% and 85.67% respectively.  
 
-### [Using VADER sentiment and SVM for predicting customer response sentiment](https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1458382&utm_source=chatgpt.com&dswid=4331)  
+## [Using VADER sentiment and SVM for predicting customer response sentiment](https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1458382&utm_source=chatgpt.com&dswid=4331)  
 
 **What is the goal of the paper?**  
 The goal of this paper is to show the use of SVMs to pre-emptively deduce the sentiment of corporate emails received at a customer support service. The paper claims to show that they can even use SVMs to determine in advance how corporate email responses to customers will be received.  
