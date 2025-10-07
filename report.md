@@ -20,19 +20,6 @@ The dataset used for sentiment analysis is titled 'Tweets about the Top Companie
 A review of recent literature reveals consistent findings that Support Vector Machines remain among the most effective models for sentiment classification, especially in financial and social media contexts. Across multiple studies, SVM outperformed deep learning alternatives such as CNNs and RNNs in accuracy and generalization, particularly when applied to short, unstructured text data from platforms like Twitter. This supports the decision to employ SVM for this study’s sentiment analysis and stock prediction framework.
 ### 1.5 Paper Roadmap
 The remainder of this paper outlines the methodology for data processing and model training, results of the sentiment and stock prediction analyses, and a discussion of findings with implications for financial forecasting. Overall, this study builds upon a growing body of literature that connects natural language processing, financial analytics, and social media data to improve predictive modeling in stock performance forecasting.
- 
-## References
-A Comparative Study of Sentiment Analysis on Customer Reviews Using Machine Learning and Deep Learning. 2023. *Computers* 13, no. 12 (340). https://www.mdpi.com/2073-431X/13/12/340.
-A Scoping Review of Preprocessing Methods for Unstructured Text Data to Assess Data Quality. 2023. *PLOS ONE.* https://pmc.ncbi.nlm.nih.gov/articles/PMC10476151/.
-Chaires, Rita. 2024. *“Ultimate Social Media Cheat Sheet: Character Limits & Best Days/Times to Post.”* American Academy of Estate Planning Attorneys, February 6, 2024. https://www.aaepa.com/2022/05/ultimate-social-media-cheat-sheet-character-limits-best-days-times-to-post.
-Chakraborty, P., U. S. Pria, M. R. A. H. Rony, and M. A. Majumdar. 2017. “Predicting Stock Movement Using Sentiment Analysis of Twitter Feed.” In *Proceedings of the 2017 6th International Conference on Informatics, Electronics and Vision (ICIEV)*, 1–6. Himeji, Japan. https://doi.org/10.1109/ICIEV.2017.8338584.
-Doğan, M., Ö. Metin, E. Tek, S. Yumuşak, and K. Öztoprak. 2020. “Speculator and Influencer Evaluation in Stock Market by Using Social Media.” In *Proceedings of the 2020 IEEE International Conference on Big Data (Big Data)*, 4559–4566. Atlanta, GA. https://doi.org/10.1109/BigData50022.2020.9378170.
-Du, Ke-Lin, Bingchun Jiang, Jiabin Lu, Jingyu Hua, and M. N. S. Swamy. 2024. “Exploring Kernel Machines and Support Vector Machines: Principles, Techniques, and Future Directions.” *Mathematics* 12, no. 24: 3935. https://doi.org/10.3390/math12243935.
-Financial Sentiment Analysis: Techniques and Applications. 2024. *ACM Computing Surveys.* https://dl.acm.org/doi/pdf/10.1145/3649451.
-Kolasani, Sai Vikram, and Rida Assaf. 2020. “Predicting Stock Movement Using Sentiment Analysis of Twitter Feed with Neural Networks.” *Journal of Data Analysis and Information Processing* 8 (4): 309–319. https://doi.org/10.4236/jdaip.2020.84018.
-S&P Dow Jones Indices. 2025. *“S&P 500®.”* Accessed October 2, 2025. https://www.spglobal.com/spdji/en/indices/equity/sp-500/#overview.
-Statista. 2025. *“Most Used Social Networks 2025, by Number of Users.”* Statista, March 26, 2025. https://www.statista.com/statistics/272014/global-social-networks-ranked-by-number-of-users.
-Twitter Sentiment Analysis and Bitcoin Price Forecasting: Implications for Financial Risk Management. 2023. *ProQuest.* https://www.proquest.com/scholarly-journals/twitter-sentiment-analysis-bitcoin-price/docview/3047039752/se-2.
 
 ## References
 
