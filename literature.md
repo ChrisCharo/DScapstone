@@ -147,25 +147,7 @@ The SVM was run both with and without SMOTE to demonstrate the ability for SMOTE
 **Results/limitations, if any.**  
 Without using SMOTE the SVM model was still able to achieve a high accuracy score of 95%, but the authors report that the confusion matrix shows it was almost completely unable to properly classify the minority class with just 4 true negatives and 57 false negatives. The optimistic AUC was 0.886 while the pessimistic AUC was a mere 0.239.  
 
-Using SMOTE with the SVM achieved worse accuracy coming in at 83.12% but a better result in accurately classifying the under-represented class. The optimistic AUC was 0.978 and the pessimistic AUC was 0.969, demonstrating a much more general ability to predict classes under different scenarios.  
-
-## [Twitter sentiment analysis and bitcoin price forecasting: implications for financial risk management](https://www.proquest.com/docview/3047039752?accountid=14787&pq-origsite=primo&sourcetype=Scholarly%20Journals)
-
-**What is the goal of the paper?**  
-The goal of this paper is to analyze sentiment analysis using gathered Twitter data to predict movements in price of Bitcoin, a digital currency.  
-
-**Why is it important?**  
-Bitcoin was introduced with an initial price of $0.00099 in 2009 and currently has a valuation of $114,332 per coin which makes the possibility of predicting its price movements a highly valuable area of research.  
-
-**How is it solved? – Methods**  
-The data used was collected by scraping Twitter data using the `snscrape` tool then preprocessing by eliminating hashtags, mentions, and https links. Any tweets left empty were then excluded. To create the test dataset, 10 independent human raters were hired to analyze each entry and assign a sentiment score.  
-
-As opposed to similar studies, neutral tweets were left in the final dataset as they were determined to be statistically significant in the final model. The researchers utilized VADER for sentiment analysis. It was determined that trying to predict precise price movements was cumbersome and unnecessary, so they utilized logistic regression to predict whether the price would rise or fall.  
-
-**Results/limitations, if any.**  
-The results were unfortunately lackluster with accuracy, precision, recall, and F-1 scores hovering in the mid to high 50% range. The model did reveal some interesting discoveries, notably that negative sentiment has a significantly higher impact on price as opposed to positive sentiment.  
-
-One of the main limitations of the study was using only English tweets as it excluded the sentiments of all non-English speaking Twitter users. Overall this article was very informative and will be heavily utilized as an example for our research.  
+Using SMOTE with the SVM achieved worse accuracy coming in at 83.12% but a better result in accurately classifying the under-represented class. The optimistic AUC was 0.978 and the pessimistic AUC was 0.969, demonstrating a much more general ability to predict classes under different scenarios.
 
 ---
 
