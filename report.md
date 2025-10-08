@@ -4,7 +4,7 @@
 
 <a id="top"></a>
 
-Authors: Chris Charo, Hunter Clayton, Camille Esteves, Steve Wong
+Authors: Chris Charo, Hunter Clayton, and Camille Esteves
 
 ## 1. Introduction
 
@@ -51,8 +51,10 @@ The remainder of this paper outlines the methodology for data processing and mod
 
  
 ## Glossary
-Twitter(X) — In 2022, Twitter was acquired and re-branded to X. The dataset used for this report include data from pre and post acquisition therefore we have chosen to combine the two terms.
-Tweets(Posts) — Post acquisition, Tweets were renamed to Posts on X.
-SVM — Support Vector Machines
+Twitter(X) — In 2022, Twitter was acquired and re-branded to X. The dataset used for this report include data from pre and post acquisition therefore we have chosen to combine the two terms.  
+
+Tweets(Posts) — Post acquisition, Tweets were renamed to Posts on X.  
+
+SVM — Support Vector Machines  
 
 [Back to Home](index.md)
