@@ -1,11 +1,13 @@
 # Report
 
+<a id="top"></a>
+
 Authors: Chris Charo, Hunter Clayton, Camille Esteves, Steve Wong
 
 ## 1. Introduction
 
 ### 1.1 Overview of Sentiment Analysis
-Sentiment analysis is the process of analyzing text to derive the underlying emotions being expressed in a collection of data. It has a wide range of applications, including understanding customer satisfaction metrics, brand reputation, and marketing campaign responses. One area of sentiment analysis that has received significant attention is its relationship with public sentiment and the valuation of publicly traded companies and broader stock market indexes. With the S&P 500 Index currently boasting an aggregate market capitalization of $57.4 trillion, an advantage in predicting the price movements of publicly traded stocks would be highly valuable for investors (S&P Dow Jones Indices 2025). One of the most popular outlets for real-time public sentiment is the social media platform Twitter(X), which has over 586 million active users in 2025 (Statista 2025). Twitter(X) differentiates itself from other platforms through short-form content of 280 characters or fewer, allowing rapid communication of opinions, news, and humor (Chaires 2024). This concise format provides a valuable source of global sentiment data across generations, cultures, and regions.
+Sentiment analysis is the process of analyzing text to derive the underlying emotions being expressed in a collection of data. It has a wide range of applications, including understanding customer satisfaction metrics, brand reputation, and marketing campaign responses. One area of sentiment analysis that has received significant attention is its relationship with public sentiment and the valuation of publicly traded companies and broader stock market indexes. With the S&P 500 Index currently boasting an aggregate market capitalization of $57.4 trillion, an advantage in predicting the price movements of publicly traded stocks would be highly valuable for investors [\[S&P Dow Jones Indices 2025\]](#ref1) (S&P Dow Jones Indices 2025). One of the most popular outlets for real-time public sentiment is the social media platform Twitter(X), which has over 586 million active users in 2025 (Statista 2025). Twitter(X) differentiates itself from other platforms through short-form content of 280 characters or fewer, allowing rapid communication of opinions, news, and humor (Chaires 2024). This concise format provides a valuable source of global sentiment data across generations, cultures, and regions.
 Recent studies have shown that machine learning models such as SVM, LSTM, and ensemble methods like XGBoost are increasingly used in financial sentiment analysis, particularly on Twitter(X) datasets. Across the literature, SVM has repeatedly demonstrated superior performance in classifying sentiment polarity for short-text data such as tweets, due to its robustness in high-dimensional feature spaces. Recent research also highlights how combining these models with deep learning architectures can improve predictive accuracy when dealing with social media text data (Financial Sentiment Analysis: Techniques and Applications 2024).
 
 ### 1.2 Importance of Twitter Data in Financial Forecasting
@@ -23,44 +25,27 @@ The remainder of this paper outlines the methodology for data processing and mod
 
 ## References
 
-A Comparative Study of Sentiment Analysis on Customer Reviews Using Machine Learning and Deep Learning. 
-  2023. *Computers* 13, no. 12 (340). https://www.mdpi.com/2073-431X/13/12/340  
+<a id="ref1"></a> A Comparative Study of Sentiment Analysis on Customer Reviews Using Machine Learning and Deep Learning. 2023. *Computers* 13, no. 12 (340). https://www.mdpi.com/2073-431X/13/12/340 [\[Back to Top\]](#top)  
 
-A Scoping Review of Preprocessing Methods for Unstructured Text Data to Assess Data Quality. 
-  2023. *PLOS ONE.* https://pmc.ncbi.nlm.nih.gov/articles/PMC10476151/  
+A Scoping Review of Preprocessing Methods for Unstructured Text Data to Assess Data Quality. 2023. *PLOS ONE.* https://pmc.ncbi.nlm.nih.gov/articles/PMC10476151/ [\[Back to Top\]](#top)  
 
-Chaires, Rita. 2024. “Ultimate Social Media Cheat Sheet: Character Limits & Best Days/Times to Post.
-  ” *American Academy of Estate Planning Attorneys,* February 6, 2024. https://www.aaepa.com/2022/05/
-    ultimate-social-media-cheat-sheet-character-limits-best-days-times-to-post  
+Chaires, Rita. 2024. “Ultimate Social Media Cheat Sheet: Character Limits & Best Days/Times to Post”. *American Academy of Estate Planning Attorneys,* February 6, 2024. https://www.aaepa.com/2022/05/ultimate-social-media-cheat-sheet-character-limits-best-days-times-to-post [\[Back to Top\]](#top)  
 
-Chakraborty, P., U. S. Pria, M. R. A. H. Rony, and M. A. Majumdar. 2017. “Predicting Stock Movement Using 
-  Sentiment Analysis of Twitter Feed.” In *Proceedings of the 2017 6th International Conference on Informatics, 
-  Electronics and Vision (ICIEV),* 1–6. Himeji, Japan. https://doi.org/10.1109/ICIEV.2017.8338584  
+Chakraborty, P., U. S. Pria, M. R. A. H. Rony, and M. A. Majumdar. 2017. “Predicting Stock Movement Using Sentiment Analysis of Twitter Feed.” In *Proceedings of the 2017 6th International Conference on Informatics, Electronics and Vision (ICIEV),* 1–6. Himeji, Japan. https://doi.org/10.1109/ICIEV.2017.8338584 [\[Back to Top\]](#top)  
 
-Doğan, M., Ö. Metin, E. Tek, S. Yumuşak, and K. Öztoprak. 2020. “Speculator and Influencer Evaluation
-  in Stock Market by Using Social Media.” In *Proceedings of the 2020 IEEE International Conference on 
-  Big Data (Big Data),* 4559–4566. Atlanta, GA. https://doi.org/10.1109/BigData50022.2020.9378170  
+Doğan, M., Ö. Metin, E. Tek, S. Yumuşak, and K. Öztoprak. 2020. “Speculator and Influencer Evaluation in Stock Market by Using Social Media.” In *Proceedings of the 2020 IEEE International Conference on Big Data (Big Data),* 4559–4566. Atlanta, GA. https://doi.org/10.1109/BigData50022.2020.9378170 [\[Back to Top\]](#top)  
 
-Du, Ke-Lin, Bingchun Jiang, Jiabin Lu, Jingyu Hua, and M. N. S. Swamy. 2024. “Exploring Kernel Machines 
-  and Support Vector Machines: Principles, Techniques, and Future Directions.” *Mathematics* 12, 
-  no. 24: 3935. https://doi.org/10.3390/math12243935  
+Du, Ke-Lin, Bingchun Jiang, Jiabin Lu, Jingyu Hua, and M. N. S. Swamy. 2024. “Exploring Kernel Machines and Support Vector Machines: Principles, Techniques, and Future Directions.” *Mathematics* 12, no. 24: 3935. https://doi.org/10.3390/math12243935 [\[Back to Top\]](#top)  
 
-Financial Sentiment Analysis: Techniques and Applications. 2024. *ACM Computing Surveys.* 
-  https://dl.acm.org/doi/pdf/10.1145/3649451  
+Financial Sentiment Analysis: Techniques and Applications. 2024. *ACM Computing Surveys.* https://dl.acm.org/doi/pdf/10.1145/3649451 [\[Back to Top\]](#top)  
 
-Kolasani, Sai Vikram, and Rida Assaf. 2020. “Predicting Stock Movement Using Sentiment Analysis of 
-  Twitter Feed with Neural Networks.” *Journal of Data Analysis and Information Processing* 8 
-  (4): 309–319. https://doi.org/10.4236/jdaip.2020.84018  
+Kolasani, Sai Vikram, and Rida Assaf. 2020. “Predicting Stock Movement Using Sentiment Analysis of Twitter Feed with Neural Networks.” *Journal of Data Analysis and Information Processing* 8 (4): 309–319. https://doi.org/10.4236/jdaip.2020.84018 [\[Back to Top\]](#top)  
 
-S&P Dow Jones Indices. 2025. “S&P 500®.” Accessed October 2, 2025. 
-  https://www.spglobal.com/spdji/en/indices/equity/sp-500/#overview  
+S&P Dow Jones Indices. 2025. “S&P 500®.” Accessed October 2, 2025. https://www.spglobal.com/spdji/en/indices/equity/sp-500/#overview [\[Back to Top\]](#top)  
 
-Statista. 2025. “Most Used Social Networks 2025, by Number of Users.” March 26, 2025. 
-  https://www.statista.com/statistics/272014/global-social-networks-ranked-by-number-of-users  
+Statista. 2025. “Most Used Social Networks 2025, by Number of Users.” March 26, 2025. https://www.statista.com/statistics/272014/global-social-networks-ranked-by-number-of-users [\[Back to Top\]](#top)  
 
-Twitter Sentiment Analysis and Bitcoin Price Forecasting: Implications for Financial 
-  Risk Management. 2023. *ProQuest.* 
-  https://www.proquest.com/scholarly-journals/twitter-sentiment-analysis-bitcoin-price/docview/3047039752/se-2  
+Twitter Sentiment Analysis and Bitcoin Price Forecasting: Implications for Financial Risk Management. 2023. *ProQuest.* https://www.proquest.com/scholarly-journals/twitter-sentiment-analysis-bitcoin-price/docview/3047039752/se-2 [\[Back to Top\]](#top)  
 
  
 ## Glossary
