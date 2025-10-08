@@ -1,6 +1,6 @@
 [Back to Home](index.md)
 
-# Predicting Stock Market Price Movements of Top Companies using Support Vector Machines Sentiment Analysis of Twitter Data
+# Using Twitter Sentiment Analysis to Predict Stock Price Movements of Major Companies via Support Vector Machines
 
 <a id="top"></a>
 
