@@ -1,2 +1,2 @@
-# DScapstone
-Repo for the Data Science Capstone course
+# Data Science Capstone Project
+
