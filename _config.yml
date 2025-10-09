@@ -1,4 +1,4 @@
 title: SVM Capstone Project
-remote_theme: poole/hyde@v0.5.0
+theme: jekyll-theme-slate
 description: >
   A project exploring stock market prediction with SVM and Twitter sentiment
