@@ -1,4 +1,4 @@
 ## About Our Team
 More info about our group
 
-[Back to Home](/)
+[Back to Home](index.md)
