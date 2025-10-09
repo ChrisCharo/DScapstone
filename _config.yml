@@ -1,1 +1,4 @@
-theme: jekyll-theme-cayman
+title: SVM Capstone Project
+theme: jekyll-theme-minimal
+description: >
+  A project exploring stock market prediction with SVM and Twitter sentiment.
