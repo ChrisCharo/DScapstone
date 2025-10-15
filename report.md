@@ -123,9 +123,6 @@ plt.show()
 
 ![Average Stock Prices vs. Tweet Volume](./images/tweet-volume-stock-price.png)
 
-### 2.3
-
-
 ## References
 
 <a id="ref1"></a> A Comparative Study of Sentiment Analysis on Customer Reviews Using Machine Learning and Deep Learning. 2023. *Computers* 13, no. 12 (340). https://www.mdpi.com/2073-431X/13/12/340 [\[Back to Top\]](#top)  
