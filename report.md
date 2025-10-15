@@ -25,6 +25,25 @@ A review of recent literature reveals consistent findings that Support Vector Ma
 ### 1.5 Paper Roadmap
 The remainder of this paper outlines the methodology for data processing and model training, results of the sentiment and stock prediction analyses, and a discussion of findings with implications for financial forecasting. Overall, this study builds upon a growing body of literature that connects natural language processing, financial analytics, and social media data to improve predictive modeling in stock performance forecasting.
 
+#### Tweet Volume Over Time
+
+```python
+plt.figure(figsize=(14, 6))
+finished_dataset['date'] = pd.to_datetime(finished_dataset['date'])
+tweets_per_month = finished_dataset.groupby(finished_dataset['date'].dt.to_period('M')).size()
+tweets_per_month.plot(kind='line', color='skyblue', linewidth=2)
+plt.title('Tweet Volume Over Time (2015-2019)', fontsize=16, fontweight='bold')
+plt.xlabel('Date', fontsize=12)
+plt.ylabel('Number of Tweets', fontsize=12)
+plt.grid(alpha=0.3)
+plt.tight_layout()
+plt.show()
+```
+
+![Tweet Volume Over Time](./images/Tweet-volume-over-time.png)
+
+
+
 ## References
 
 <a id="ref1"></a> A Comparative Study of Sentiment Analysis on Customer Reviews Using Machine Learning and Deep Learning. 2023. *Computers* 13, no. 12 (340). https://www.mdpi.com/2073-431X/13/12/340 [\[Back to Top\]](#top)  
