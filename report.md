@@ -31,6 +31,98 @@ The remainder of this paper outlines the methodology for data processing and mod
 
 ### 2.2 Dataset Visualizations
 
+#### Tweet Volume Over Time
+
+```python
+plt.figure(figsize=(14, 6))
+finished_dataset['date'] = pd.to_datetime(finished_dataset['date'])
+tweets_per_month = finished_dataset.groupby(finished_dataset['date'].dt.to_period('M')).size()
+tweets_per_month.plot(kind='line', color='skyblue', linewidth=2)
+plt.title('Tweet Volume Over Time (2015-2019)', fontsize=16, fontweight='bold')
+plt.xlabel('Date', fontsize=12)
+plt.ylabel('Number of Tweets', fontsize=12)
+plt.grid(alpha=0.3)
+plt.tight_layout()
+plt.show()
+```
+
+![Tweet Volume Over Time](<./images/Tweet-volume-over-time.png>)
+
+#### Average Stock Closing Prices Over Time
+
+```python
+plt.figure(figsize=(14, 6))
+top_companies = finished_dataset['ticker_symbol'].value_counts().head(4).index # Top four to match the last visualization
+for company in top_companies:
+    company_data = finished_dataset[finished_dataset['ticker_symbol'] == company]
+    plt.plot(company_data.groupby('date')['close_value'].mean(), label=company, alpha=0.7)
+plt.title('Average Stock Closing Prices Over Time', fontsize=16, fontweight='bold')
+plt.xlabel('Date', fontsize=12)
+plt.ylabel('Closing Price ($)', fontsize=12)
+plt.legend()
+plt.grid(alpha=0.3)
+plt.tight_layout()
+plt.show()
+```
+
+![Average Stock Closing Prices Over Time](<./images/Stock-price-over-time.png>)
+
+#### Average Stock Prices vs. Tweet Volume
+
+```python
+# Average stock prices at closing overlaid ontop of tweet volume
+# I'm looking for correlation between tweet volume and stock price swings
+
+sns.set_style("dark")
+plt.style.use("dark_background")
+
+fig, axes = plt.subplots(2, 2, figsize=(14, 6))
+axes = axes.flatten()
+
+# Get top 4 companies by tweet volume
+top_companies = finished_dataset['ticker_symbol'].value_counts().head(4).index
+
+for idx, company in enumerate(top_companies):
+    ax1 = axes[idx]
+
+    # Filter the data for each company
+    company_data = finished_dataset[finished_dataset['ticker_symbol'] == company].copy()
+
+    # Group by date for tweet volume and average stock price
+    daily_data = company_data.groupby('date').agg({
+        'tweet_id': 'count',  # Count the tweets
+        'close_value': 'mean'  # Average the closing price
+    }).reset_index()
+
+    # Create the dual axis since we are overlaying two graphs
+    ax2 = ax1.twinx()
+
+    # Plot tweet volume as bars
+    ax1.bar(daily_data['date'], daily_data['tweet_id'], alpha=0.2, color='skyblue', label='Tweet Volume')
+    ax1.set_ylabel('Tweet Volume', fontsize=11, color='skyblue')
+    ax1.tick_params(axis='y', labelcolor='skyblue')
+
+    # Plot stock price as line
+    ax2.plot(daily_data['date'], daily_data['close_value'], color='darkred', linewidth=2, label='Stock Price')
+    ax2.set_ylabel('Closing Price ($)', fontsize=11, color='darkred')
+    ax2.tick_params(axis='y', labelcolor='darkred')
+
+    # Formatting
+    ax1.set_xlabel('Date', fontsize=11)
+    ax1.set_title(f'{company}: Tweet Volume vs Stock Price', fontsize=11, fontweight='bold')
+    ax1.grid(alpha=0.8)
+
+    # Add legends
+    lines1, labels1 = ax1.get_legend_handles_labels()
+    lines2, labels2 = ax2.get_legend_handles_labels()
+    ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left', fontsize=11)
+
+plt.tight_layout()
+plt.show()
+```
+
+![Average Stock Prices vs. Tweet Volume](<./images/tweet-volume-stock-price.png>)
+
 ## References
 
 <a id="ref1"></a> A Comparative Study of Sentiment Analysis on Customer Reviews Using Machine Learning and Deep Learning. 2023. *Computers* 13, no. 12 (340). https://www.mdpi.com/2073-431X/13/12/340 [\[Back to Top\]](#top)  
