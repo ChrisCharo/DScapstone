@@ -46,7 +46,8 @@ plt.tight_layout()
 plt.show()
 ```
 
-![Tweet Volume Over Time](./images/Tweet-volume-over-time.png)
+![Tweet Volume Over Time](./images/Tweet-volume-over-time.png)  
+
 
 #### Average Stock Closing Prices Over Time
 
@@ -65,7 +66,8 @@ plt.tight_layout()
 plt.show()
 ```
 
-![Average Stock Closing Prices Over Time](./images/Stock-price-over-time.png)
+![Average Stock Closing Prices Over Time](./images/Stock-price-over-time.png)  
+
 
 #### Average Stock Prices vs. Tweet Volume
 
@@ -121,7 +123,9 @@ plt.tight_layout()
 plt.show()
 ```
 
-![Average Stock Prices vs. Tweet Volume](./images/Tweet-volume-stock-price.png)
+![Average Stock Prices vs. Tweet Volume](./images/tweet-volume-stock-price.png)  
+
+### 2.3
 
 
 ## References
