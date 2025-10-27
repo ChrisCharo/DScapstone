@@ -147,9 +147,9 @@ $$
 f(x) = w_1 x + w_2 x^2 + \dots + w_n x^n + b
 $$
 
-*Figure 5. Polynomial function*
+*Figure 1. Polynomial function*
 
-The features ($x_i$) are the individual words from the body of the tweet separated during tokenization. For instance, an example Tweet ‘Apple keeps going up!’ would become ‘Apple’ - ‘keeps’ - ‘going’ - ‘up’ - ‘!’ where each word is designated as an individual input variable. The weights ($w_i$) indicate the contribution of each word to the sentiment prediction: positive values suggest positive sentiment, negative values indicate negative sentiment, and values near zero correspond to neutral sentiment. Finally, the bias or intercept (b) functions as a baseline shifting the hyperplane to optimally separate the classes in the feature space (Montesinos, 2022).
+The features ($x_i$) are the individual words from the body of the tweet separated during tokenization. For instance, an example Tweet ‘Apple keeps going up!’ would become ‘Apple’ - ‘keeps’ - ‘going’ - ‘up’ - ‘!’ where each word is designated as an individual input variable. The weights ($w_i$) indicate the contribution of each word to the sentiment prediction: positive values suggest positive sentiment, negative values indicate negative sentiment, and values near zero correspond to neutral sentiment. Finally, the bias or intercept (b) functions as a baseline shifting the hyperplane to optimally separate the classes in the feature space [(Montesinos et al. 2022)](#ref12).
 
 ### 2.5 Evaluation Metrics
 We will evaluate the performance of the SVM model using a variety of methods: accuracy, precision, recall, and F-1 score. Accuracy score is the percentage of true positives, true negatives, and true neutrals correctly identified by the model.
@@ -158,7 +158,7 @@ $$
 \text{Accuracy Score} = \frac{\text{True Positives} + \text{True Negatives} + \text{True Neutrals}}{\text{Total Predictions}}
 $$
 
-*Figure 6. Accuracy Score formula*
+*Figure 2. Accuracy Score formula*
 
 While accuracy is an important metric, additional methods will be required to understand the model's true ability to classify tweet sentiment. As opposed to accuracy, the remaining evaluation metrics will need to be separated by class to ensure that positive, negative, and neutral predictors are equally represented. The scores of each predictor category will then be averaged and weighted to provide an overall evaluation.
 
@@ -168,7 +168,7 @@ $$
 \text{Precision (Per Class)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
 $$
 
-*Figure 7. Precision formula per class*
+*Figure 3. Precision formula per class*
 
 Recall score measures the model’s ability to correctly identify a tweet as a true positive, negative, or neutral or a false positive, negative, or neutral. Of all the predictions, how many were actually correct?
 
@@ -176,7 +176,7 @@ $$
 \text{Recall (Per Class)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
 $$
 
-*Figure 8. Recall formula per class*
+*Figure 4. Recall formula per class*
 
 F-1 Score measures the balance between precision and recall. Does the model balance all predictions or does it favor one type?
 
@@ -184,26 +184,26 @@ $$
 \text{F1 (Per Class)} = \frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
 $$
 
-*Figure 9. F1 Score formula per class*
+*Figure 5. F1 Score formula per class*
 
 ### 2.7 Making Predictions
 Once sentiment analysis using the SVM model is complete, we will progress to making predictions on the stock price of our selected companies: Apple, Amazon, Google, and Microsoft. A variety of models will be tested including Extreme Gradient Boosting (XGBoost), Long Short-Term Memory (LSTM), and Support Vector Regression (SVR) with the ultimate goal of achieving a model that can adequately predict the closing price of a stock the following day based on tweets from the prior day. 
 
 #### Extreme Gradient Boosting
-XGBoost is a commonly used, scalable, and powerful gradient boosting-based machine learning algorithm. XGBoost surpasses other decision tree-based models by employing gradient boosting, which functions by starting with one tree and sequentially building additional trees that correct the errors of previous ones. Additionally, Lasso and Ridge regularization techniques are incorporated to balance complexity while minimizing overfitting. While XGBoost has a multitude of formula’s, the core mathematical equation, the Objective Function, is detailed in figure 6 (Chen, 2016).
+XGBoost is a commonly used, scalable, and powerful gradient boosting-based machine learning algorithm. XGBoost surpasses other decision tree-based models by employing gradient boosting, which functions by starting with one tree and sequentially building additional trees that correct the errors of previous ones. Additionally, Lasso and Ridge regularization techniques are incorporated to balance complexity while minimizing overfitting. While XGBoost has a multitude of formula’s, the core mathematical equation, the Objective Function, is detailed in figure 6 [(Chen et al. 2016)](#ref13).
 
 $$
 \text{Obj}(\Theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k=1}^{K} \Omega(f_k)
 $$
 
-*Figure 10. XGBoost objective function*
+*Figure 6. XGBoost objective function*
 
 #### Long Short-Term Memory
-LSTM is a Recurrent Neural Network (RNN)-based deep learning algorithm that is widely used in the financial industry for time series forecasting, making it a fitting choice for predicting stock prices. LSTM improves upon traditional RNN algorithms by solving two issues: the vanishing gradient problem,where the model struggles to retain long-term dependencies, and the exploding gradient problem, where the model keeps too much information, causing instability during training. LSTM solves these problems by controlling the memory cell using three gates: The input gate, forget gate, and output gate. This allows LSTM to utilize important long term memory while discarding irrelevant memory to improve efficiency and model performance (Qin, 2023). The structure of the cell using all three gates can be seen below in figure 7.
+LSTM is a Recurrent Neural Network (RNN)-based deep learning algorithm that is widely used in the financial industry for time series forecasting, making it a fitting choice for predicting stock prices. LSTM improves upon traditional RNN algorithms by solving two issues: the vanishing gradient problem,where the model struggles to retain long-term dependencies, and the exploding gradient problem, where the model keeps too much information, causing instability during training. LSTM solves these problems by controlling the memory cell using three gates: The input gate, forget gate, and output gate. This allows LSTM to utilize important long term memory while discarding irrelevant memory to improve efficiency and model performance [(Qin et al. 2023)](#ref14). The structure of the cell using all three gates can be seen below in figure 7.
 
 ![LSTM Memory Cell Gates Diagram](<./images/lstm.png>)
 
-*Figure 11. LSTM Memory Cell Gates Diagram*
+*Figure 7. LSTM Memory Cell Gates Diagram* [(Nguyen et al. 2022)](#ref15).
 
 ## References
 
@@ -228,6 +228,15 @@ LSTM is a Recurrent Neural Network (RNN)-based deep learning algorithm that is w
 <a id="ref10"></a> Statista. 2025. “Most Used Social Networks 2025, by Number of Users.” March 26, 2025. https://www.statista.com/statistics/272014/global-social-networks-ranked-by-number-of-users [\[Back to Top\]](#top)  
 
 <a id="ref11"></a> Twitter Sentiment Analysis and Bitcoin Price Forecasting: Implications for Financial Risk Management. 2023. *ProQuest.* https://www.proquest.com/scholarly-journals/twitter-sentiment-analysis-bitcoin-price/docview/3047039752/se-2 [\[Back to Top\]](#top)  
+
+<a id="ref12"></a> Montesinos López, O.A., Montesinos López, A., Crossa, J. (2022). Support Vector Machines and Support Vector Regression. In: Multivariate Statistical Machine Learning Methods for Genomic Prediction. Springer, Cham. https://doi.org/10.1007/978-3-030-89010-0_9 [\[Back to Top\]](#top)  
+
+<a id="ref13"></a> Chen, Tianqi, and Carlos Guestrin. “XGBoost: A Scalable Tree Boosting System.” In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 785–94. New York, NY, USA: ACM, 2016. https://doi.org/10.1145/2939672.2939785. [\[Back to Top\]](#top)  
+
+<a id="ref14"></a> Qin, Chuan, Liangming Chen, Zangtai Cai, Mei Liu, and Long Jin. 2023. “Long Short-Term Memory with Activation on Gradient.” Neural Networks 164: 135–145. https://doi.org/10.1016/j.neunet.2023.04.026. [\[Back to Top\]](#top)  
+
+<a id="ref15"></a> Nguyen, Anh & Nguyen, Phi Le & Vu, Viet & Pham, Quoc & Nguyen, Viet & Nguyen, Minh Hieu & Nguyen, Hùng & Nguyen, Kien. (2022). Accurate discharge and water level forecasting using ensemble learning with genetic algorithm and singular spectrum analysis-based denoising. Scientific Reports. 12. 10.1038/s41598-022-22057-8. [\[Back to Top\]](#top)  
+
 
  
 ## Glossary
