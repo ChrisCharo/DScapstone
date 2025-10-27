@@ -149,7 +149,7 @@ $$
 
 *Figure 1. Linear SVM decision function*
 
-The features ($x_i$) are the individual words from the body of the tweet separated during tokenization. For instance, an example Tweet ‘Apple keeps going up!’ would become ‘Apple’ - ‘keeps’ - ‘going’ - ‘up’ - ‘!’ where each word is designated as an individual input variable. The weights ($w_i$) indicate the contribution of each word to the sentiment prediction: positive values suggest positive sentiment, negative values indicate negative sentiment, and values near zero correspond to neutral sentiment. Finally, the bias or intercept (b) functions as a baseline shifting the hyperplane to optimally separate the classes in the feature space [(Montesinos et al. 2022)](#ref12).
+The features \(x_i\) are the individual words from the body of the tweet separated during tokenization. For instance, an example Tweet ‘Apple keeps going up!’ would become ‘Apple’ - ‘keeps’ - ‘going’ - ‘up’ - ‘!’ where each word is designated as an individual input variable. The weights \(w_i\) indicate the contribution of each word to the sentiment prediction: positive values suggest positive sentiment, negative values indicate negative sentiment, and values near zero correspond to neutral sentiment. Finally, the bias or intercept \(b\) functions as a baseline shifting the hyperplane to optimally separate the classes in the feature space [(Montesinos et al. 2022)](#ref12).
 
 ### 2.5 Evaluation Metrics
 We will evaluate the performance of the SVM model using a variety of methods: accuracy, precision, recall, and F-1 score. Accuracy score is the percentage of true positives, true negatives, and true neutrals correctly identified by the model.
