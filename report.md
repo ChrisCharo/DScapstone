@@ -147,7 +147,7 @@ $$
 f(x) = w_1 x + w_2 x^2 + \dots + w_n x^n + b
 $$
 
-*Figure 1. Polynomial function*
+*Figure 1. Linear SVM decision function*
 
 The features ($x_i$) are the individual words from the body of the tweet separated during tokenization. For instance, an example Tweet ‘Apple keeps going up!’ would become ‘Apple’ - ‘keeps’ - ‘going’ - ‘up’ - ‘!’ where each word is designated as an individual input variable. The weights ($w_i$) indicate the contribution of each word to the sentiment prediction: positive values suggest positive sentiment, negative values indicate negative sentiment, and values near zero correspond to neutral sentiment. Finally, the bias or intercept (b) functions as a baseline shifting the hyperplane to optimally separate the classes in the feature space [(Montesinos et al. 2022)](#ref12).
 
