@@ -196,9 +196,9 @@ $$
 #### Long Short-Term Memory
 LSTM is a Recurrent Neural Network (RNN)-based deep learning algorithm that is widely used in the financial industry for time series forecasting, making it a fitting choice for predicting stock prices. LSTM improves upon traditional RNN algorithms by solving two issues: the vanishing gradient problem,where the model struggles to retain long-term dependencies, and the exploding gradient problem, where the model keeps too much information, causing instability during training. LSTM solves these problems by controlling the memory cell using three gates: The input gate, forget gate, and output gate. This allows LSTM to utilize important long term memory while discarding irrelevant memory to improve efficiency and model performance (Qin, 2023). The structure of the cell using all three gates can be seen below in figure 7.
 
+![LSTM Memory Cell Gates Diagram](<./images/lstm.png>)
 
-
-*Figure 11. LSTM Memory Cell Gates*
+*Figure 11. LSTM Memory Cell Gates Diagram*
 
 ## References
 
