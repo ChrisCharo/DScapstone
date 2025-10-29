@@ -5,6 +5,12 @@
 
 <a id="top"></a>
 
+[Back to Home](index.md)
+
+# Using Twitter Sentiment Analysis to Predict Stock Price Movements of Major Companies via Support Vector Machines
+
+Authors: Chris Charo, Hunter Clayton, and Camille Esteves
+
 ### Table of Contents
 - [Introduction](#1-introduction)
 - [Methods](#2-methods)
@@ -12,15 +18,6 @@
 - [Conclusion](#4-conclusion)
 - [References](#references)
 - [Glossary](#glossary)
-
-
-
-
-[Back to Home](index.md)
-
-# Using Twitter Sentiment Analysis to Predict Stock Price Movements of Major Companies via Support Vector Machines
-
-Authors: Chris Charo, Hunter Clayton, and Camille Esteves
 
 ## 1. Introduction
 
