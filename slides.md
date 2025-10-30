@@ -1,5 +1,5 @@
 # Welcome to Our Project
-Use your arrow keys or swipe to navigate
+Use your arrow keys to navigate
 
 ---
 
