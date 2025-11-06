@@ -3,9 +3,9 @@ Use your arrow keys to navigate
 
 ---
 
-## Using Twitter Sentiment Analysis via Support Vector Machines to Predict Stock Price Movements of Major Companies
+### Using Twitter Sentiment Analysis via Support Vector Machines to Predict Stock Price Movements of Major Companies
 
-#### Authors: Chris Charro, Hunter Clayton, Camille Esteves
+##### Authors: Chris Charro, Hunter Clayton, Camille Esteves
 
 ---
 
@@ -18,7 +18,7 @@ Use your arrow keys to navigate
 - Sentiment analysis is the process of analyzing text to derive the underlying emotions being expressed in a collection of data.
   - Allows companies to understand how stakeholders ***feel*** about their brand, products, or direction at a large scale.
   - Used across a variety of industries including technology, finance, and retail.
- 
+
 ---
 
 ### Twitter(X)'s Role & Advantages for Sentiment Analysis
