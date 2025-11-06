@@ -35,7 +35,7 @@ Use your arrow keys to navigate
     - Less computationally intensive
     - Reduced storage requirements
     - Greater availability of training data
-   
+
 ---
 
 ### Why is Sentiment Analysis Important
