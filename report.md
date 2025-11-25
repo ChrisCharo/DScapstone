@@ -35,7 +35,7 @@ The remainder of this paper outlines the methodology for data preprocessing and 
 ### 2.1 Sentiment Analysis
 
 #### VADER
-Vader is a popular lexicon-based sentiment analysis tool created by C.J. Hutto and Eric Gilbert at the Georgia Institute of Technology. Developed in 2014, VADER was designed specifically as a sentiment analysis tool that excelled at analyzing social media or “micro-blog like text”. VADER maintains a massive library of common words and phrases and functions by assigning a valence and intensity level score to each word in a block of text and aggregating those scores to determine an overall sentiment into one of three classes: positive, neutral, or negative.VADER is particularly advantageous for sentiment analysis because it delivers strong accuracy without requiring training data and operates extremely quickly [(Hutto & Gilbert, 2014)](#ref16).
+VADER is a popular lexicon-based sentiment analysis tool created by C.J. Hutto and Eric Gilbert at the Georgia Institute of Technology. Developed in 2014, VADER was designed specifically as a sentiment analysis tool that excelled at analyzing social media or “micro-blog like text”. VADER maintains a massive library of common words and phrases and functions by assigning a valence and intensity level score to each word in a block of text and aggregating those scores to determine an overall sentiment into one of three classes: positive, neutral, or negative.VADER is particularly advantageous for sentiment analysis because it delivers strong accuracy without requiring training data and operates extremely quickly [(Hutto & Gilbert, 2014)](#ref16).
 
 #### finVADER
 FinVADER is an open-source adaptation of the original VADER model, developed by Petr Koráb in 2023. It extends VADER’s lexicon-based approach by incorporating financial domain-specific lexicons, such as SentiBignomics and Henry’s Finance Lexicon, enabling more accurate sentiment analysis on financial texts like earnings reports, news articles, and finance specific tweets. Like VADER, FinVADER assigns valence and intensity scores to words and aggregates them to determine overall sentiment. By integrating domain-specific vocabulary, FinVADER improves the model’s ability to detect subtle positive or negative cues that are unique to financial language, while retaining VADER’s advantages of speed and not requiring training data to operate [(Koráb, 2023)](#ref17).
@@ -47,11 +47,12 @@ Similar to finVADER, finBERT is an open-source, domain-specific adaptation of th
 
 
 ### 2.2 Support Vector Machines (SVM)
-One of the most widely used models for sentiment analysis is Support Vector Machines (SVM). SVMs are a class of supervised machine learning models that excel at classification by formulating an optimal decision boundary, or 'hyperplane', to separate data into distinct classes. For unstructured text data commonly used in sentiment analysis, this function is crucial because SVM effectively handles multi-dimensional data that cannot be classified linearly. By employing kernel methods, the model can transform non-linearly separable data into a higher-dimensional space to improve accuracy and reduce overfitting [(Du et al. 2024)](#ref6). Notably, prior research has shown that SVM provides the highest accuracy for sentiment analysis classification when predicting stock market movement [(Chakraborty et al. 2017; Kolasani and Assaf 2020)](#ref4). Based on these findings, SVM is selected as the primary model for sentiment analysis in this study. Similarly, comparative analyses have confirmed SVM’s consistency and reliability over other algorithms for sentiment classification tasks in finance [(A Comparative Study of Sentiment Analysis on Customer Reviews 2023)](#ref1).
-Despite extensive research in financial forecasting, accurately linking real-time public sentiment to stock movements remains a challenge due to data noise, linguistic ambiguity, and market volatility. This study aims to bridge that gap by combining sentiment classification on Twitter(X) data with market performance analysis for major NASDAQ companies. Several studies have addressed these challenges by proposing improved preprocessing and data filtering methods to enhance classification accuracy [(A Scoping Review of Preprocessing Methods 2023)](#ref2).
-The goal of this study is to determine whether sentiment polarity from social media can serve as a reliable predictor of stock performance, using Support Vector Machines as the primary analytical model.
+Support Vector Machines are a supervised learning method that performs well in high dimensional classification tasks. In financial research, SVM is often used to detect patterns in market movement because it creates a margin-based decision boundary that reduces overfitting and can represent non-linear relationships using kernel transformations. Prior studies have shown that SVM models frequently outperform baseline approaches in stock movement prediction, especially when sentiment signals or other derived indicators are included in the feature set [(Chakraborty et al. 2017)](#ref4).
 
-SVM functions by calculating the optimal hyperplane that separates the data into their respective categories. For our linear SVM model, the linear SVM decision function can be seen below in figure 5.
+In our project, SVM is not used for classifying tweet sentiment. Instead, the model is applied to predict whether the next trading day will experience a positive or negative price movement. Our workflow focuses on merging sentiment outputs with historical pricing data, aligning timestamps, and preparing a supervised dataset where each row contains aggregated sentiment scores and market variables such as daily returns and volume. The SVM then learns a decision boundary that separates upward and downward price outcomes based on these combined features. The purpose of using SVM in this context is to evaluate whether sentiment derived from Twitter provides meaningful predictive value beyond standard market indicators. By observing how the SVM separates classes when sentiment features are included, we can assess whether social media signals contribute observable structure to short horizon price behavior.
+
+
+SVM determines a separating hyperplane using the following linear decision function:
 
 $$
 f(x) = w_1 x + w_2 x^2 + \dots + w_n x^n + b
@@ -59,7 +60,7 @@ $$
 
 *Figure 1. Linear SVM decision function*
 
-The features ($$x^i$$) are the individual words from the body of the tweet separated during tokenization. For instance, an example Tweet ‘Apple keeps going up!’ would become ‘Apple’ - ‘keeps’ - ‘going’ - ‘up’ - ‘!’ where each word is designated as an individual input variable. The weights ($$w_i$$) indicate the contribution of each word to the sentiment prediction: positive values suggest positive sentiment, negative values indicate negative sentiment, and values near zero correspond to neutral sentiment. Finally, the bias or intercept ($$b$$) functions as a baseline shifting the hyperplane to optimally separate the classes in the feature space [(Montesinos et al. 2022)](#ref12).
+In this formulation, the features ($$x^i$$) represent the variables used for next-day prediction. In our study, these include aggregated sentiment scores from VADER, finVADER, and finBERT, as well as market-based features such as daily percentage change and trading volume. Each weight ($$w_i$$) indicates how strongly a feature contributes to separating upward and downward movement classes, while the bias term ($$b$$) shifts the decision boundary to improve classification accuracy [(Montesinos et al. 2022)](#ref12).
 
 ### 2.5 Evaluation Metrics
 We will evaluate the performance of the SVM model using a variety of methods: accuracy, precision, recall, and F-1 score. Accuracy score is the percentage of true positives, true negatives, and true neutrals correctly identified by the model.
@@ -70,7 +71,7 @@ $$
 
 *Figure 2. Accuracy Score formula*
 
-While accuracy is an important metric, additional methods will be required to understand the model's true ability to classify tweet sentiment. As opposed to accuracy, the remaining evaluation metrics will need to be separated by class to ensure that positive, negative, and neutral predictors are equally represented. The scores of each predictor category will then be averaged and weighted to provide an overall evaluation.
+While accuracy is an important metric, additional methods will be required to understand the model's true ability to make predictions on stock price movements: Precision, Recall, and F-1 Score. The results of each metric will then be averaged and weighted to provide an overall evaluation.
 
 Precision score measures the model’s ability to correctly identify true positives. Of all the actual positives, how many were predicted positive?
 
@@ -78,15 +79,15 @@ $$
 \text{Precision (Per Class)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
 $$
 
-*Figure 3. Precision formula per class*
+*Figure 3. Precision formula*
 
-Recall score measures the model’s ability to correctly identify a tweet as a true positive, negative, or neutral or a false positive, negative, or neutral. Of all the predictions, how many were actually correct?
+Recall score measures the model’s ability to correctly identify a stock's movements as a true positive, negative, or neutral or a false positive, negative, or neutral. Of all the predictions, how many were actually correct?
 
 $$
 \text{Recall (Per Class)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
 $$
 
-*Figure 4. Recall formula per class*
+*Figure 4. Recall formula*
 
 F-1 Score measures the balance between precision and recall. Does the model balance all predictions or does it favor one type?
 
@@ -94,40 +95,21 @@ $$
 \text{F1 (Per Class)} = \frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
 $$
 
-*Figure 5. F1 Score formula per class*
-
-### 2.2 Making Predictions
-Once sentiment analysis using the SVM model is complete, we will progress to making predictions on the stock price of our selected companies: Apple, Amazon, Google, and Microsoft. A variety of models will be tested including Extreme Gradient Boosting (XGBoost), Long Short-Term Memory (LSTM), and Support Vector Regression (SVR) with the ultimate goal of achieving a model that can adequately predict the closing price of a stock the following day based on tweets from the prior day. 
-
-#### Extreme Gradient Boosting
-XGBoost is a commonly used, scalable, and powerful gradient boosting-based machine learning algorithm. XGBoost surpasses other decision tree-based models by employing gradient boosting, which functions by starting with one tree and sequentially building additional trees that correct the errors of previous ones. Additionally, Lasso and Ridge regularization techniques are incorporated to balance complexity while minimizing overfitting. While XGBoost has a multitude of formula’s, the core mathematical equation, the Objective Function, is detailed in figure 6 [(Chen et al. 2016)](#ref13).
-
-$$
-\text{Obj}(\Theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k=1}^{K} \Omega(f_k)
-$$
-
-*Figure 6. XGBoost objective function*
-
-#### Long Short-Term Memory
-LSTM is a Recurrent Neural Network (RNN)-based deep learning algorithm that is widely used in the financial industry for time series forecasting, making it a fitting choice for predicting stock prices. LSTM improves upon traditional RNN algorithms by solving two issues: the vanishing gradient problem,where the model struggles to retain long-term dependencies, and the exploding gradient problem, where the model keeps too much information, causing instability during training. LSTM solves these problems by controlling the memory cell using three gates: The input gate, forget gate, and output gate. This allows LSTM to utilize important long term memory while discarding irrelevant memory to improve efficiency and model performance [(Qin et al. 2023)](#ref14). The structure of the cell using all three gates can be seen below in figure 7.
-
-![LSTM Memory Cell Gates Diagram](<./images/lstm.png>)
-
-*Figure 7. LSTM Memory Cell Gates Diagram* [(Nguyen et al. 2022)](#ref15).
+*Figure 5. F1 Score formula*
 
 ## 3. Analysis & Results
 
 ### 3.1 Overview of Datasets
-This study utilizes two primary datasets to investigate the relationship between social media sentiment and stock market performance. The dataset used for sentiment analysis is titled 'Tweets about the Top Companies from 2015 to 2020,' created by Doğan, Metin, Tek, Yumuşak, and Öztoprak for the IEEE International Conference [(Doğan et al. 2020)](#ref5). This dataset comprises over three million tweets collected using a Selenium-based parsing script designed to collect text data from Twitter(X). Each record includes tweet text, timestamp, company reference, and engagement attributes such as likes and retweets. The dataset serves as the foundation for sentiment analysis, enabling the classification of public opinion related to four major NASDAQ companies: Amazon, Apple, Google, and Microsoft.
+This study utilizes two primary datasets to investigate the relationship between social media sentiment and stock market performance. The dataset used for sentiment analysis is titled 'Tweets about the Top Companies from 2015 to 2020,' created by Doğan, Metin, Tek, Yumuşak, and Öztoprak for the IEEE International Conference [(Doğan et al. 2020)](#ref5). This dataset comprises over three million tweets collected using a Selenium-based parsing script designed to collect text data from Twitter(X). Each record includes tweet text, timestamp, company reference, and engagement attributes such as likes and retweets. The dataset serves as the foundation for sentiment analysis, enabling the classification of public opinion related to major NASDAQ companies.
 
-Once sentiment classification is completed, the results will be used to predict the stock price movements of four companies: Amazon, Apple, Google, and Microsoft. The stock data comes from 'Values of Top NASDAQ Companies from 2010 to 2020,' sourced directly from the NASDAQ website and hosted on Kaggle [(Doğan et al. 2020)](#ref5). It includes daily historical stock prices—opening, closing, high, low, and volume data—for the same four companies. To ensure analytical consistency, both datasets were merged based on overlapping date ranges. The merged dataset was further refined by removing extraneous or non-essential columns such as usernames, retweet indicators, and reply metadata. Before integration, data types were standardized, and timestamps were aligned to maintain temporal accuracy between social sentiment and corresponding stock data.
+Once sentiment classification is complete, the results will be used to predict the stock price movements of the companies included in the dataset. The stock data comes from 'Values of Top NASDAQ Companies from 2010 to 2020,' sourced directly from the NASDAQ website and hosted on Kaggle [(Doğan et al. 2020)](#ref5). It includes daily historical stock prices: opening, closing, high, low, and volume data. To ensure analytical consistency, both datasets were merged based on overlapping date ranges. The merged dataset was further refined by removing extraneous or non-essential columns such as usernames, retweet indicators, and reply metadata. Before integration, data types were standardized, and timestamps were aligned to maintain temporal accuracy between social sentiment and corresponding stock data.
 
 ### 3.2 Data Preprocessing
-Preprocessing is a critical step in preparing unstructured text data for machine learning applications, especially when working with social media content that is often noisy, informal, and contextually ambiguous [(A Scoping Review of Preprocessing Methods 2023)](#ref2). The preprocessing phase for this project focused primarily on the textual component of the Twitter(X) dataset. Each tweet underwent a structured series of cleaning and transformation steps. Specifically, all text was first converted to lowercase to ensure consistency across the dataset. Subsequently, URLs, user mentions, hashtags, and stock symbols were removed, followed by tokenization based on whole words. Stop words were eliminated, with the exception of negation words such as 'not' and 'no,' which are critical in determining sentiment polarity. Finally, lemmatization was applied to reduce each word to its base form, allowing the Support Vector Machine (SVM) model to better capture semantic meaning and context [(Du et al. 2024)](#ref6).
+Preprocessing is a critical step in preparing unstructured text data for machine learning applications, especially when working with social media content that is often noisy, informal, and contextually ambiguous [(A Scoping Review of Preprocessing Methods 2023)](#ref2). The preprocessing phase for this project focused primarily on the textual component of the Twitter(X) dataset. Each tweet underwent a structured series of cleaning and transformation steps. Specifically, all text was first converted to lowercase to ensure consistency across the dataset. Subsequently, URLs, user mentions, hashtags, and stock symbols were removed, followed by tokenization based on whole words. Stop words were eliminated, with the exception of negation words such as 'not' and 'no,' which are critical in determining sentiment polarity. Finally, lemmatization was applied to reduce each word to its base form, allowing the models to better capture semantic meaning and context [(Du et al. 2024)](#ref6).
 
 Following these transformations, tokenized tweets were reviewed for outliers, duplicates, and entries lacking meaningful textual content. This filtering step ensured that only relevant, high-quality data remained. Lemmatization, performed using the Natural Language Toolkit (NLTK), helped maintain linguistic consistency while preserving grammatical meaning. These preprocessing methods align closely with those recommended in prior research emphasizing the importance of context retention and dimensionality reduction in text classification tasks [(Financial Sentiment Analysis: Techniques and Applications 2024)](#ref7). The finalized clean dataset was stored in a Pandas DataFrame, ready for sentiment classification.
 
-Python libraries such as NLTK, scikit-learn, and regular expressions (RE) were used extensively throughout preprocessing. The process mirrors common best practices identified in previous literature on text-based sentiment analysis [(Financial Sentiment Analysis: Techniques and Applications 2024)](#ref7). This systematic cleaning approach ensures that the subsequent machine learning stages operate on standardized, high-quality input data. Preprocessing the Tweet data prior to training the SVM model is vital to achieving adequate accuracy of true sentiment expressed in each tweet.
+Python libraries such as NLTK, scikit-learn, and regular expressions (RE) were used extensively throughout preprocessing. The process mirrors common best practices identified in previous literature on text-based sentiment analysis [(Financial Sentiment Analysis: Techniques and Applications 2024)](#ref7). This systematic cleaning approach ensures that the subsequent machine learning stages operate on standardized, high-quality input data. Preprocessing the Tweet data prior running sentiment analysis is vital to achieving adequate accuracy of true sentiment expressed in each tweet.
 
 ### 3.3 Dataset Visualizations
 
