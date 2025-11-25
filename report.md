@@ -7,7 +7,7 @@
 
 [Back to Home](index.md)
 
-# Using Twitter Sentiment Analysis via Support Vector Machines to Predict Stock Price Movements of Major Companies
+# Using Twitter Sentiment Analysis to Predict Stock Price Movements of Major Companies via Support Vector Machines
 
 Authors: Chris Charo, Hunter Clayton, and Camille Esteves
 
@@ -29,6 +29,8 @@ Every day, millions of users share their perspectives on nearly every conceivabl
 
 ### 1.3 Paper Roadmap
 The remainder of this paper outlines the methodology for data preprocessing and model training, results of the sentiment and stock prediction analyses, and a discussion of findings with implications for financial forecasting. Overall, this study builds upon a growing body of literature that connects natural language processing, financial analytics, and social media data to improve predictive modeling in stock performance forecasting.
+
+### [View Detailed Literature Review & Related Work](literature.md)
 
 ## 2. Methods
 
