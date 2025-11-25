@@ -78,7 +78,7 @@ While accuracy is an important metric, additional methods will be required to un
 Precision score measures the model’s ability to correctly identify true positives. Of all the actual positives, how many were predicted positive?
 
 $$
-\text{Precision (Per Class)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
+\text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
 $$
 
 *Figure 3. Precision formula*
@@ -86,7 +86,7 @@ $$
 Recall score measures the model’s ability to correctly identify a stock's movements as a true positive, negative, or neutral or a false positive, negative, or neutral. Of all the predictions, how many were actually correct?
 
 $$
-\text{Recall (Per Class)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
+\text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
 $$
 
 *Figure 4. Recall formula*
@@ -94,7 +94,7 @@ $$
 F-1 Score measures the balance between precision and recall. Does the model balance all predictions or does it favor one type?
 
 $$
-\text{F1 (Per Class)} = \frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+\text{F1} = \frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
 $$
 
 *Figure 5. F1 Score formula*
