@@ -22,8 +22,7 @@ Authors: Chris Charo, Hunter Clayton, and Camille Esteves
 ## 1. Introduction
 
 ### 1.1 Overview of Sentiment Analysis
-Sentiment analysis is the process of analyzing text to derive the underlying emotions being expressed in a collection of data. It has a wide range of applications, including understanding customer satisfaction metrics, brand reputation, and marketing campaign responses. One area of sentiment analysis that has received significant attention is its relationship with public sentiment and the valuation of publicly traded companies and broader stock market indexes. With the S&P 500 Index currently boasting an aggregate market capitalization of $57.4 trillion, an advantage in predicting the price movements of publicly traded stocks would be highly valuable for investors [(S&P Dow Jones Indices 2025)](#ref9). One of the most popular outlets for real-time public sentiment is the social media platform Twitter(X), which has over 586 million active users in 2025 [(Statista 2025)](#ref10). Twitter(X) differentiates itself from other platforms through short-form content of 280 characters or fewer, allowing rapid communication of opinions, news, and humor [(Chaires 2024)](#ref10). This concise format provides a valuable source of global sentiment data across generations, cultures, and regions.
-Recent studies have shown that machine learning models such as SVM, LSTM, and ensemble methods like XGBoost are increasingly used in financial sentiment analysis, particularly on Twitter(X) datasets. SVM has repeatedly demonstrated superior performance in classifying sentiment polarity for short-text data such as tweets, due to its robustness in high-dimensional feature spaces. Recent research also highlights how combining these models with deep learning architectures can improve predictive accuracy when using social media text data [(Financial Sentiment Analysis: Techniques and Applications 2024)](#ref7).
+Sentiment analysis is the process of analyzing text to derive the underlying emotions being expressed in a collection of data. It has a wide range of applications, including understanding customer satisfaction metrics, brand reputation, and marketing campaign responses. One area of sentiment analysis that has received significant attention is its relationship with public sentiment and the valuation of publicly traded companies and broader stock market indexes. With the S&P 500 Index currently boasting an aggregate market capitalization of $57.4 trillion, an advantage in predicting the price movements of publicly traded stocks would be highly valuable for investors [(S&P Dow Jones Indices 2025)](#ref9). One of the most popular outlets for real-time public sentiment is the social media platform Twitter(X), which has over 586 million active users in 2025 [(Statista 2025)](#ref10). Twitter(X) differentiates itself from other platforms through short-form content of 280 characters or fewer, allowing rapid communication of opinions, news, and humor [(Chaires 2024)](#ref10). This concise format provides a valuable source of global sentiment data across generations, cultures, and regions. A multitude of tools are available for sentiment analysis, but Valence Aware Dictionary and sEntiment Reasoner (VADER), Financial Valence Aware Dictionary and sEntiment Reasoner (finVADER), and Financial Bidirectional Encoder Representations from Transformers (finBERT) excel at analyzing short-form content, making them an ideal choice for financial-specific Twitter sentiment analysis.
 
 ### 1.2 Importance of Twitter Data in Financial Forecasting
 Every day, millions of users share their perspectives on nearly every conceivable topic, including brands and companies. This constant flow of opinionated data makes Twitter(X) an invaluable resource for analyzing trends in public sentiment. In financial markets, these sentiments can serve as indicators of investor confidence, public reaction to corporate events, and potential short-term price fluctuations. Prior studies demonstrate that analyzing sentiment from Twitter posts can effectively reflect investor sentiment and broader market trends [(Twitter Sentiment Analysis and Bitcoin Price Forecasting 2023)](#ref11).
@@ -33,7 +32,21 @@ The remainder of this paper outlines the methodology for data preprocessing and 
 
 ## 2. Methods
 
-### 2.1 Support Vector Machines (SVM)
+### 2.1 Sentiment Analysis
+
+#### VADER
+Vader is a popular lexicon-based sentiment analysis tool created by C.J. Hutto and Eric Gilbert at the Georgia Institute of Technology. Developed in 2014, VADER was designed specifically as a sentiment analysis tool that excelled at analyzing social media or “micro-blog like text”. VADER maintains a massive library of common words and phrases and functions by assigning a valence and intensity level score to each word in a block of text and aggregating those scores to determine an overall sentiment into one of three classes: positive, neutral, or negative.VADER is particularly advantageous for sentiment analysis because it delivers strong accuracy without requiring training data and operates extremely quickly [(Hutto & Gilbert, 2014)](#ref16).
+
+#### finVADER
+FinVADER is an open-source adaptation of the original VADER model, developed by Petr Koráb in 2023. It extends VADER’s lexicon-based approach by incorporating financial domain-specific lexicons, such as SentiBignomics and Henry’s Finance Lexicon, enabling more accurate sentiment analysis on financial texts like earnings reports, news articles, and finance specific tweets. Like VADER, FinVADER assigns valence and intensity scores to words and aggregates them to determine overall sentiment. By integrating domain-specific vocabulary, FinVADER improves the model’s ability to detect subtle positive or negative cues that are unique to financial language, while retaining VADER’s advantages of speed and not requiring training data to operate [(Koráb, 2023)](#ref17).
+
+#### finBERT
+Bidirectional Encoder Representations from Transformers (BERT) is a deep learning language model developed by researchers at Google in 2018. BERT represented a major breakthrough in Natural Language Processing by introducing deep bidirectional training of transformer encoders. Prior to BERT, most NLP models processed text in a single direction (left-to-right or right-to-left), which limited their ability to capture full context and understand the relationships between words across a sentence. BERT’s bidirectional self-attention mechanism allows it to consider both preceding and following context simultaneously, resulting in much deeper language understanding. It has been widely adopted for tasks such as question answering, search query ranking, next-sentence prediction, text classification, and sentiment analysis [(Devlin et al., 2019)](#ref18).
+
+Similar to finVADER, finBERT is an open-source, domain-specific adaptation of the original BERT model. Introduced by Dogu Tan Araci in 2019, finBERT retains BERT’s underlying transformer architecture but is further pre-trained and fine-tuned on financial texts such as analyst reports, company announcements, and financial news. This domain adaptation enables the model to better capture financial terminology, linguistic patterns, and subtle sentiment cues, resulting in improved performance for financial sentiment classification tasks [(Araci, 2019)](#ref19).
+
+
+### 2.2 Support Vector Machines (SVM)
 One of the most widely used models for sentiment analysis is Support Vector Machines (SVM). SVMs are a class of supervised machine learning models that excel at classification by formulating an optimal decision boundary, or 'hyperplane', to separate data into distinct classes. For unstructured text data commonly used in sentiment analysis, this function is crucial because SVM effectively handles multi-dimensional data that cannot be classified linearly. By employing kernel methods, the model can transform non-linearly separable data into a higher-dimensional space to improve accuracy and reduce overfitting [(Du et al. 2024)](#ref6). Notably, prior research has shown that SVM provides the highest accuracy for sentiment analysis classification when predicting stock market movement [(Chakraborty et al. 2017; Kolasani and Assaf 2020)](#ref4). Based on these findings, SVM is selected as the primary model for sentiment analysis in this study. Similarly, comparative analyses have confirmed SVM’s consistency and reliability over other algorithms for sentiment classification tasks in finance [(A Comparative Study of Sentiment Analysis on Customer Reviews 2023)](#ref1).
 Despite extensive research in financial forecasting, accurately linking real-time public sentiment to stock movements remains a challenge due to data noise, linguistic ambiguity, and market volatility. This study aims to bridge that gap by combining sentiment classification on Twitter(X) data with market performance analysis for major NASDAQ companies. Several studies have addressed these challenges by proposing improved preprocessing and data filtering methods to enhance classification accuracy [(A Scoping Review of Preprocessing Methods 2023)](#ref2).
 The goal of this study is to determine whether sentiment polarity from social media can serve as a reliable predictor of stock performance, using Support Vector Machines as the primary analytical model.
@@ -243,12 +256,28 @@ plt.show()
 <a id="ref14"></a> Qin, Chuan, Liangming Chen, Zangtai Cai, Mei Liu, and Long Jin. 2023. “Long Short-Term Memory with Activation on Gradient.” Neural Networks 164: 135–145. https://doi.org/10.1016/j.neunet.2023.04.026. [\[Back to Top\]](#top)  
 
 <a id="ref15"></a> Nguyen, Anh & Nguyen, Phi Le & Vu, Viet & Pham, Quoc & Nguyen, Viet & Nguyen, Minh Hieu & Nguyen, Hùng & Nguyen, Kien. (2022). Accurate discharge and water level forecasting using ensemble learning with genetic algorithm and singular spectrum analysis-based denoising. Scientific Reports. 12. 10.1038/s41598-022-22057-8. [\[Back to Top\]](#top)  
+
+<a id="ref16"></a> Hutto, C, and Eric Gilbert. “VADER: A Parsimonious Rule-Based Model for Sentiment Analysis of Social Media Text.” Proceedings of the International AAAI Conference on Web and Social Media 8, no. 1 (2014): 216–25. https://doi.org/10.1609/icwsm.v8i1.14550. [\[Back to Top\]](#top)  
+
+<a id="ref17"></a> Koráb, Petr. FinVADER: VADER Sentiment Classifier Updated with Financial Lexicons. GitHub. Apache‑2.0. December 6, 2023. Accessed November 22, 2025. https://github.com/PetrKorab/FinVADER [\[Back to Top\]](#top)  
+
+<a id="ref18"></a> Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019. “BERT: Pre-training of deep bidirectional transformers for language understanding.” Proceedings of the 2019 Conference of the North 2019:4171-. https://doi.org/10.18653/v1/n19-1423. [\[Back to Top\]](#top)  
+
+<a id="ref19"></a> Araci, Dogu. “FinBERT: Financial Sentiment Analysis with Pre-Trained Language Models,” 2019. https://doi.org/10.48550/arxiv.1908.10063. [\[Back to Top\]](#top)  
  
 ## Glossary
-Twitter(X) — In 2022, Twitter was acquired and re-branded to X. The dataset used for this report include data from pre and post acquisition therefore we have chosen to combine the two terms.  
+Twitter(X) — In 2022, Twitter was acquired and rebranded as X. Although the dataset used in this report contains pre-acquisition data, we reference both names for clarity and to preserve the original meaning and context.  
 
 Tweets(Posts) — Post acquisition, Tweets were renamed to Posts on X.  
 
 SVM — Support Vector Machines  
+
+VADER — Valence Aware Dictionary and sEntiment Reasoner  
+
+finVADER — Financial Valence Aware Dictionary and sEntiment Reasoner  
+
+finBERT — Financial Bidirectional Encoder Representations from Transformers  
+
+NLP — Natural Language Processing  
 
 [Back to Home](index.md)
