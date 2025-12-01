@@ -3,7 +3,7 @@ Use your arrow keys to navigate
 
 ---
 
-### Using Twitter Sentiment Analysis via Support Vector Machines to Predict Stock Price Movements of Major Companies
+### Using Twitter Sentiment Analysis to Predict Stock Price Movements of Major Companies via Support Vector Machines
 
 ##### Authors: Chris Charro, Hunter Clayton, Camille Esteves
 
@@ -48,7 +48,7 @@ Use your arrow keys to navigate
 
 ### Goal of our project
 
-- *Perform sentiment analysis on Twitter(X) data related to Apple, Amazon, Google, and Microsoft to determine the possibility and accuracy of predicting the price movements of the selected stock prices based on user sentiment.*
+- *Perform sentiment analysis on Twitter(X) data related to publicly traded companies to determine the possibility and accuracy of predicting the price movements of stock prices based on user sentiment.*
 
 ---
 
@@ -56,9 +56,44 @@ Use your arrow keys to navigate
 
 ---
 
-### Support Vector Machines (SVM)
+### Sentiment Analysis
+
+- We selected three primary methods for sentiment Analysis:
+  - Valence Aware Dictionary and sEntiment Reasoner (VADER)
+  - Financial Valence Aware Dictionary and sEntiment Reasoner (finVADER)
+  - Financial Bidirectional Encoder Representations from Transformers (finBERT)
 
 ---
 
+### VADER
 
+- Developed in 2014 by C.J. Hutto and Eric Gilbert at the Georgia Institute of Technology.
+- Lexicon based with librry of common words and phrases. Assigns a score to each word and aggragates to determine positive, neutral, or negative sentiment.
+- Designed specifically for "micro-blog like text" used in social media sites like Twitter(X).
+- Requires no training data which allows extremely fast operation. 
+
+---
+
+### finVADER
+
+- Developed in 2023 by Petr Koráb.
+- Open-source adaptation of VADER model with additional financial domain-specific lexicons.
+- Trained on financial texts like earnings reports, news articles, and finance specific tweets.
+
+---
+
+### BERT
+
+- Deep learning language model developed by researchers at Google in 2018.
+- Revolutionary in Natural Language Processing by introducing deep bidirectional training or transformer encoders.
+- Bidirectional mechanism considers preceding and following context simoultaneously, allowing deeper language understanding.
+- Excels at a variety of tasks including question answering, search query ranking, next-sentence prediction, and sentiment analysis.
+
+---
+### finBERT
+
+- Open-source, domain-specific adaptation of BERT model introduced by Dogu Tan Araci in 2019.
+- Pre-trained and fine-tuned on financial texts to deliver improved performance on data with involving uncommon financial specific terminology.
+- Requires far more computational resources and training times when compared to lexicon based approaches such as VADER.
+---
 
