@@ -13,6 +13,10 @@ Use your arrow keys to navigate
 
 ---
 
+<div style="position:absolute; top:15px; right:20px; font-size:0.8em; opacity:0.6;">
+  Introduction
+</div>
+
 ### Sentiment Analysis
 
 - Sentiment analysis is the process of analyzing text to derive the underlying emotions being expressed in a collection of data.
@@ -90,10 +94,19 @@ Use your arrow keys to navigate
 - Excels at a variety of tasks including question answering, search query ranking, next-sentence prediction, and sentiment analysis.
 
 ---
+
 ### finBERT
 
 - Open-source, domain-specific adaptation of BERT model introduced by Dogu Tan Araci in 2019.
-- Pre-trained and fine-tuned on financial texts to deliver improved performance on data with involving uncommon financial specific terminology.
+- Pre-trained and fine-tuned on financial texts to deliver improved performance on data involving uncommon financial specific terminology.
 - Requires far more computational resources and training times when compared to lexicon based approaches such as VADER.
+
 ---
 
+### Support Vector Machines (SVM)
+
+- 
+
+Support Vector Machines are a supervised learning method that performs well in high dimensional classification tasks. In financial research, SVM is often used to detect patterns in market movement because it creates a margin-based decision boundary that reduces overfitting and can represent non-linear relationships using kernel transformations. Prior studies have shown that SVM models frequently outperform baseline approaches in stock movement prediction, especially when sentiment signals or other derived indicators are included in the feature set (Chakraborty et al. 2017).
+
+In our project, SVM is not used for classifying tweet sentiment. Instead, the model is applied to predict whether the next trading day will experience a positive or negative price movement. Our workflow focuses on merging sentiment outputs with historical pricing data, aligning timestamps, and preparing a supervised dataset where each row contains aggregated sentiment scores and market variables such as daily returns and volume. The SVM then learns a decision boundary that separates upward and downward price outcomes based on these combined features. The purpose of using SVM in this context is to evaluate whether sentiment derived from Twitter provides meaningful predictive value beyond standard market indicators. By observing how the SVM separates classes when sentiment features are included, we can assess whether social media signals contribute observable structure to short horizon price behavior.
