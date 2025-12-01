@@ -64,15 +64,16 @@ $$
 
 In this formulation, the features ($$x^i$$) represent the variables used for next-day prediction include daily sentiment indicators and market-based variables. For each day and ticker, we aggregated labels by counting the number of positive and negative tweets and converting them into daily sentiment proportions. These aggregated values were paired with the corresponding daily price change, which indicates whether the stock increased or decreased that day. Each feature weight ($$w_i$$) represents how strongly the model separates upward and downward movement classes, while the bias term  ($$b$$) shifts the decision boundary to improve classification accuracy [(Montesinos et al. 2022)](#ref12).
 
+### 2.6 Model Implementation in this Study
+The inputs used for the SVM model come from two main sources. First, we generated sentiment scores for each tweet using a combination of lexicon-based and transformer-based methods. These sentiment values were aggregated by date to match the daily resolution of the pricing data. Second, daily market features were added, including closing price change, opening price, high, low, and volume. 
+
+After merging the sentiment and pricing data, we constructed a supervised dataset where the target variable represents whether the next day’s closing price increased or decreased. SVM was chosen as one of the classification models in order to test whether sentiment features improve the separation of these two classes. The rbf kernel was selected for its efficiency and strong performance on structured financial datasets. The performance of the final model will allow us to compare how well sentiment-driven features contribute to forecasting compared to models that rely only on numerical market indicators.
+
 ### 2.5 Evaluation Metrics
 We will evaluate the performance of the SVM model using a variety of methods: accuracy, precision, recall, and F-1 score. Accuracy score is the percentage of true positives, true negatives, and true neutrals correctly identified by the model.
 
-### 2.6 Model Implementation in this Study
-The inputs used for the SVM model come from two main sources. First, we generated sentiment scores for each tweet using a combination of lexicon-based and transformer-based methods. These sentiment values were aggregated by date to match the daily resolution of the pricing data. Second, daily market features were added, including closing price change, opening price, high, low, and volume. After merging the sentiment and pricing data, we constructed a supervised dataset where the target variable represents whether the next day’s closing price increased or decreased. SVM was chosen as one of the classification models in order to test whether sentiment features improve the separation of these two classes. The rbf kernel was selected for its efficiency and strong performance on structured financial datasets. The performance of the final model will allow us to compare how well sentiment-driven features contribute to forecasting compared to models that rely only on numerical market indicators.
-
-
 $$
-\text{Accuracy Score} = \frac{\text{True Positives} + \text{True Negatives} + \text{True Neutrals}}{\text{Total Predictions}}
+\text{Accuracy Score} = \frac{\text{True Positives} + \text{True Negatives}}{\text{Total Predictions}}
 $$
 
 *Figure 2. Accuracy Score formula*
@@ -207,13 +208,59 @@ plt.show()
 
 ![Average Stock Prices vs. Tweet Volume](<./images/tweet-volume-stock-price.png>)
 
+### 3.4 Sentiment Analysis Class Distributions
+
 ![VADER, finVADER, finBERT, and Manual Sentiment Analysis Class Distribution Comparison](<./images/sentiment_analysis.png>)
 
 *Figure 6. Sentiment Analysis Class Distribution of VADER, finVADER, finBERT, and Manual Sentiment Analysis*
 
+### 3.5 SVM Model Results
+
 ![Confusion Matrix](<./images/confusion_matrix.png>)
 
 *Figure 7. Confusion Matrix*
+
+### 3.6 Evaluation Metrics
+
+#### Accuracy
+
+$$
+\text{Accuracy Score} = \frac{\text{True Positives} + \text{True Negatives}}{\text{Total Predictions}}
+$$
+
+$$
+\text{Accuracy Score} = \frac{\text{320} + \text{907}}{\text{2,189}} ≈ {0.5607}
+$$
+
+#### Precision
+
+$$
+\text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
+$$
+
+$$
+\text{Precision} = \frac{\text{320}}{\text{320} + \text{489}} ≈ {0.3950}
+$$
+
+#### Recall
+
+$$
+\text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
+$$
+
+$$
+\text{Recall} = \frac{\text{320}}{\text{320} + \text{473}} ≈ {0.4030}
+$$
+
+#### F-1 Score
+
+$$
+\text{F1} = \frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+$$
+
+$$
+\text{F1} = \frac{2 \cdot \text{0.3950} \cdot \text{0.4030}}{\text{0.3950} + \text{0.4030}} ≈ {0.3980}
+$$
 
 ![ROC Curve](<./images/roc_curve.png>)
 
