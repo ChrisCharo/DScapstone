@@ -13,7 +13,7 @@ Use your arrow keys to navigate
 
 ---
 
-<div style="position:absolute; top:0; right:0; margin:0; padding:0; font-size:0.8em; opacity:0.6;">
+<div style="position:absolute; bottom:0; right:0; margin:0; padding:0; font-size:0.8em; opacity:0.6;">
   Introduction
 </div>
 
