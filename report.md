@@ -207,6 +207,18 @@ plt.show()
 
 ![Average Stock Prices vs. Tweet Volume](<./images/tweet-volume-stock-price.png>)
 
+![VADER, finVADER, finBERT, and Manual Sentiment Analysis Class Distribution Comparison](<./images/sentiment_analysis.png>)
+
+*Figure 6. Sentiment Analysis Class Distribution of VADER, finVADER, finBERT, and Manual Sentiment Analysis*
+
+![Confusion Matrix](<./images/confusion_matrix.png>)
+
+*Figure 7. Confusion Matrix*
+
+![ROC Curve](<./images/roc_curve.png>)
+
+*Figure 8. ROC Curve*
+
 ## 4. Conclusion
 
 ## References
