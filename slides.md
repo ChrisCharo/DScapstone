@@ -15,10 +15,6 @@ Use your arrow keys to navigate
 
 ---
 
-<div style="position:absolute; bottom:0; right:0; margin:0; padding:0; font-size:0.4em; opacity:0.6;">
-  Introduction
-</div>
-
 ### Sentiment Analysis
 
 - Sentiment analysis is the process of analyzing text to derive the underlying emotions being expressed in a collection of data.
