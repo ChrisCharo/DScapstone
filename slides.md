@@ -13,7 +13,7 @@ Use your arrow keys to navigate
 
 ---
 
-<div style="position:absolute; bottom:0; right:0; margin:0; padding:0; font-size:0.8em; opacity:0.6;">
+<div style="position:absolute; bottom:0; right:0; margin:0; padding:0; font-size:0.4em; opacity:0.6;">
   Introduction
 </div>
 
@@ -105,8 +105,26 @@ Use your arrow keys to navigate
 
 ### Support Vector Machines (SVM)
 
-- 
+- Once sentiment analysis is complete, SVM will be used to make predictions on stock price movement.
+  - SVM is a Supervised machine learning method that excels in classification tasks.
+  - Commonly used in financial research for it's ability to detect patterns in market movement.
+  - Prior studies, Notably by Chakraborty et al., have shown SVM models outperform other approaches in stock price prediction. 
 
-Support Vector Machines are a supervised learning method that performs well in high dimensional classification tasks. In financial research, SVM is often used to detect patterns in market movement because it creates a margin-based decision boundary that reduces overfitting and can represent non-linear relationships using kernel transformations. Prior studies have shown that SVM models frequently outperform baseline approaches in stock movement prediction, especially when sentiment signals or other derived indicators are included in the feature set (Chakraborty et al. 2017).
+---
 
-In our project, SVM is not used for classifying tweet sentiment. Instead, the model is applied to predict whether the next trading day will experience a positive or negative price movement. Our workflow focuses on merging sentiment outputs with historical pricing data, aligning timestamps, and preparing a supervised dataset where each row contains aggregated sentiment scores and market variables such as daily returns and volume. The SVM then learns a decision boundary that separates upward and downward price outcomes based on these combined features. The purpose of using SVM in this context is to evaluate whether sentiment derived from Twitter provides meaningful predictive value beyond standard market indicators. By observing how the SVM separates classes when sentiment features are included, we can assess whether social media signals contribute observable structure to short horizon price behavior.
+### Support Vector Machines (SVM)
+
+- Supervised machine learning method that functions by using a linear decision function
+
+$$
+f(x) = w_1 x + w_2 x^2 + \dots + w_n x^n + b
+$$
+
+- The features ($$x^i$$) represent the variables used for next-day prediction.
+- The weights ($$w_i$$) represent how strongly the model separates upward and downward movement classes
+- THe bias term ($$b$$) shifts the decision boundary to improve classification accuracy
+
+---
+
+
+
