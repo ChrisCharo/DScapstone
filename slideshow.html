@@ -5,31 +5,31 @@
   <title>Project Slideshow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Reveal.js core & theme -->
   <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme">
-
-  <!-- MathJax -->
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
+      <!-- This tells Reveal.js to load your Markdown slides -->
       <section data-markdown="slides.md"
                data-separator="^\n---\n"
                data-separator-vertical="^\n--\n"
-               data-separator-notes="^Note:"></section>
+               data-separator-notes="^Note:">
+      </section>
     </div>
   </div>
 
+  <!-- Reveal.js scripts -->
   <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
   <script src="https://unpkg.com/reveal.js/plugin/markdown/markdown.js"></script>
-  <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
-
   <script>
+    // Initialize the slideshow with slide transitions and URL hash navigation
     Reveal.initialize({
       hash: true,
       transition: 'slide',
-      plugins: [ RevealMarkdown, RevealMath ]
+      plugins: [ RevealMarkdown ]
     });
   </script>
 </body>
