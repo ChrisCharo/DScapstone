@@ -1,3 +1,10 @@
+---
+title: "Your Title"
+revealOptions:
+  math:
+    mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+---
+
 # Welcome to Our Project
 Use your arrow keys to navigate
 
@@ -119,6 +126,10 @@ Supervised machine learning method that functions by using a linear decision fun
 $$
 f(x) = w_1 x + w_2 x^2 + \dots + w_n x^n + b
 $$
+
+  - The features ($$x^i$$) represent the variables used for next-day prediction.
+  - The weights ($$w_i$$) represent how strongly the model separates upward and downward movement classes
+  - The bias term ($$b$$) shifts the decision boundary to improve classification accuracy
 
 ---
 
