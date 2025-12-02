@@ -122,9 +122,9 @@ $$
 f(x) = w_1 x + w_2 x^2 + \dots + w_n x^n + b
 $$
 
-  - The features ($$x^i$$) represent the variables used for next-day prediction.
-  - The weights ($$w_i$$) represent how strongly the model separates upward and downward movement classes
-  - The bias term ($$b$$) shifts the decision boundary to improve classification accuracy
+  - The features ($x^i$) represent the variables used for next-day prediction.
+  - The weights ($w_i$) represent how strongly the model separates upward and downward movement classes
+  - The bias term ($b$) shifts the decision boundary to improve classification accuracy
 
 ---
 
