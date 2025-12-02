@@ -114,15 +114,11 @@ Use your arrow keys to navigate
 
 ### Support Vector Machines (SVM)
 
-- Supervised machine learning method that functions by using a linear decision function
+Supervised machine learning method that functions by using a linear decision function
 
 $$
 f(x) = w_1 x + w_2 x^2 + \dots + w_n x^n + b
 $$
-
-- The features ($$x^i$$) represent the variables used for next-day prediction.
-- The weights ($$w_i$$) represent how strongly the model separates upward and downward movement classes
-- THe bias term ($$b$$) shifts the decision boundary to improve classification accuracy
 
 ---
 
