@@ -1,9 +1,4 @@
 ---
-title: "Your Title"
-revealOptions:
-  math:
-    mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
----
 
 # Welcome to Our Project
 Use your arrow keys to navigate
